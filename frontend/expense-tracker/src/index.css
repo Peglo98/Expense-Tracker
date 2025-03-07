@@ -16,3 +16,12 @@
         overflow-x: hidden;
     }
 }
+
+
+.input-box {
+    @apply w-full flex justify-between gap-3 text-sm text-black bg-slate-200 rounded px-4 py-3 mb-4 mt-3 border border-slate-300 outline-none;
+}
+
+.btn-primary {
+    @apply w-full py-3 text-white bg-primary rounded hover:bg-purple-700 cursor-pointer;
+}
