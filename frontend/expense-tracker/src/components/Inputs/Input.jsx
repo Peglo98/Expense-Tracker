@@ -1,42 +1,46 @@
-import React, { useState } from 'react'
-import { FaRegEye, FaRegEyeSlash } from 'react-icons/fa'
+import React, { useState } from "react";
+import { FaRegEye, FaRegEyeSlash } from "react-icons/fa6";
 
-const Input = ({value, onChange, placeholder, label, type}) => {
-    const [showPassword, setShowPassword] = useState(false);
-    const toggleShowPassword = () => setShowPassword(!showPassword);
-    
-    return (
+const Input = ({ label, value, onChange, placeholder, type }) => {
+  const [showPassword, setShowPassword] = useState(false);
+
+  const toggleShowPassword = () => {
+    setShowPassword(!showPassword);
+  };
+
+  return (
     <div>
-        <label className="text-[13px] text-slate-800">{label}</label>
-        <div className="input-box">
-            <input 
-            type={type == 'password' ? showPassword ? 'text' : 'password' : type}
-            placeholder={placeholder}
-            className="w-full bg-transparent outline-none"
-            value={value}
-            onChange={(e) => onChange(e)}
-            />
+      <label className="text-[13px] text-slate-800">{label}</label>
 
-            {type === 'password' && (
-                <>
-                {showPassword ? (
-                <FaRegEye
+      <div className="input-box">
+        <input
+          type={type == 'password' ? showPassword ? 'text' : 'password' : type}
+          placeholder={placeholder}
+          className="w-full bg-transparent outline-none"
+          value={value}
+          onChange={(e) => onChange(e)}
+        />
+
+        {type === "password" && (
+          <>
+            {showPassword ? (
+              <FaRegEye
                 size={22}
-                className='text-primary cursor-pointer'
+                className="text-primary cursor-pointer"
                 onClick={() => toggleShowPassword()}
-                />
+              />
             ) : (
-                <FaRegEyeSlash
+              <FaRegEyeSlash
                 size={22}
-                className='text-slate-400 cursor-pointer'
+                className="text-slate-400 cursor-pointer"
                 onClick={() => toggleShowPassword()}
-                />
+              />
             )}
-            </>
-            )}
-        </div>
+          </>
+        )}
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default Input
+export default Input;
